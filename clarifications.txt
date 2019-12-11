@@ -1,3 +1,9 @@
+Assumptions / Justifications
+1. Assumes that the input txt files are robust and properly formatted
+
+
+
+
 Clarifications Needed:
 
 -Subsequent input txt will be named in consecutive order (input4, input5, ..., )?

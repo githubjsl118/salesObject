@@ -11,6 +11,10 @@ import java.io.*;
 
 
 public class salesObject{
+  
+   //we instantiate local variables here, this is because we are assuming the inputs
+   //are robust therefore we are going to assume that these variables are correctly set
+   //at each iteration of the while loop within the for loop
    private int quantity;
    private boolean import;
    private String name;
@@ -35,6 +39,38 @@ public class salesObject{
       this.import = i;
       this.name = n;
       this.price = p;
+   }
+
+   //getters (we do not need setters) (potentially we do not need this
+   /*  we are commenting this out for now
+   public int getQuantity(){
+      return this.quantity;
+   }
+
+   public boolean getImport(){
+      return this.import;
+   }
+   
+   public String getName(){
+      return this.name;
+   }
+   
+   public double getPrice(){
+      return this.price;
+   } 
+   */ //we commented this out  
+
+
+   //this method will be used to print info from the salesObject
+   //this method can be unit tested
+   public void printInfo(){
+      System.out.printf("%d ", this.quantity);
+      //determine if we print imported
+      if(this.import){
+         System.out.printf("imported ");
+      }
+      System.out.printf("%s: %f\n", this.name, this.price);
+         
    }
 
    public static void main(String args[]){
@@ -92,9 +128,17 @@ public class salesObject{
             curr = st.nextToken();
             //right now the curr string should be at the end, i.e we convert
             //the string to a double and that should give us the price
+ 
+            price = Double.parseDouble(number); //now the price variable set
+
+            //we can now instantiate the salesObject
+            salesObject item = new salesObject(quahtity, import, name, price);
+            
          }
 
 
+
+salesObject(int q, boolean i, String n, double p)
 
       } //end  
 
