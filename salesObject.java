@@ -96,7 +96,7 @@ public class salesObject{
          try{
             scan = new Scanner(input1);
          }
-         catch(Exception e){return; } //we are assuming that the input is robust 
+         catch(Exception e){return; } //we are assuming that the input is robust. 
          //this while loop will scan the file.  within the while loop, the first word
          //will be the quantity of the object while the second word will determine
          //if the item is imported or not and that is determined by checking if the
