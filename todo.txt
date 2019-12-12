@@ -10,6 +10,13 @@
 
 TODO:
 
-so the program now compiles and runs, so now we need to sepearate the outputs based on which input file
+/* so the program now compiles and runs, so now we need to sepearate the outputs based on which input file
 that the data is from.  we furthermore have to verify that the calculations for the tax is correct,
 namely that we do not calculate tax from those items that are exempt from taxation
+*/
+Above has been completed
+
+
+We now have to create a data structure that contains the list of items that are exempt from 
+being taxed.  We have to determine which class and where exactly to instantiate this 
+data structur
