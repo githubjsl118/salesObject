@@ -29,6 +29,12 @@ public class totalSales{
       this.importTotal = it;
 
    }
+   
+   public void clear(){
+      domesticTotal = 0.0;
+      importTotal = 0.0;
+
+   }
 
    //setters
    public void setdomesticTotal(double dt){
@@ -69,7 +75,7 @@ public class totalSales{
       taxfromimport = (double)(twodecint / 100.0);
 
       //at this point taxfromdomestic and taxfromimport should be two digit ints... 
-      double totaltax = domesticTotal + importTotal;
+      double totaltax = taxfromdomestic + taxfromimport;
       
       //totaltax now needs to be rounded to the nearest 0.05 decimal spot.  
       //according to the specifications of the assignment, we are going to round up
@@ -87,7 +93,7 @@ public class totalSales{
       double salestax = this.calculateTax();
       double total = domesticTotal + importTotal + salestax;
       System.out.printf("Sales Taxes: %.2f\n", salestax);
-      System.out.printf("Total: %.2f\n", total);
+      System.out.printf("Total: %.2f\n\n", total);
 
    }
 

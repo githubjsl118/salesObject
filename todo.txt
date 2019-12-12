@@ -8,4 +8,8 @@
  */
 
 
+TODO:
 
+so the program now compiles and runs, so now we need to sepearate the outputs based on which input file
+that the data is from.  we furthermore have to verify that the calculations for the tax is correct,
+namely that we do not calculate tax from those items that are exempt from taxation

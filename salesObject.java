@@ -87,7 +87,11 @@ public class salesObject{
 
  
       //we set up this for loop so that we can iterate through input1, input2, etc
+     
+      //we now have to separate the output based on which input file it is from
+
       for(int i=1; i<= 3; i++){
+         System.out.printf("Output %d:\n", i);
          input1 = new File(inputtxt + i + ".txt");
          try{
             scan = new Scanner(input1);
@@ -142,10 +146,11 @@ public class salesObject{
             //we now need to add the current item price to the total sales price
             salesTotal.incfromsales(item); 
          } //end while
+         salesTotal.taxandtotalprinter();
+         salesTotal.clear();
       } //end for 
 
       //we can now print the sales tax and the total price
-      salesTotal.taxandtotalprinter();
       return;
    } //end main 
 
