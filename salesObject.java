@@ -105,7 +105,7 @@ public class salesObject{
        * to check whether the name of the product is in the list of tax exempt
        * items
        */
-       HashMap<String, int> dictionary = new HashMap<String, int> ();
+       HashMap<String, Integer> dictionary = new HashMap<String, Integer> ();
        dictionary.put("chocolate bar", 1);
        dictionary.put("box of chocolates", 1);
        dictionary.put("book", 1);

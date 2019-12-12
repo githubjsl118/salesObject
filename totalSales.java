@@ -109,13 +109,16 @@ public class totalSales{
    public double calculateTax(){
       double taxfromdomestic = domesticTotal * 0.10;
       double taxfromimport = importTotal * 0.15;
+      double taxfromeimport = eimportTotal * 0.05;
       int twodecint = (int)(taxfromdomestic * 100);
       taxfromdomestic = (double)(twodecint / 100.0); //we round down nearest 0.01 ...
       twodecint = (int)(taxfromimport * 100);
       taxfromimport = (double)(twodecint / 100.0);
+      twodecint = (int)(taxfromeimport * 100);
+      taxfromeimport = (double)(twodecint / 100.0);
 
       //at this point taxfromdomestic and taxfromimport should be two digit ints... 
-      double totaltax = taxfromdomestic + taxfromimport;
+      double totaltax = taxfromdomestic + taxfromimport + taxfromeimport;
       
       //totaltax now needs to be rounded to the nearest 0.05 decimal spot.  
       //according to the specifications of the assignment, we are going to round up
@@ -131,7 +134,7 @@ public class totalSales{
 
    public void taxandtotalprinter(){
       double salestax = this.calculateTax();
-      double total = domesticTotal + importTotal + salestax;
+      double total = domesticTotal + importTotal + edomesticTotal + eimportTotal + salestax;
       System.out.printf("Sales Taxes: %.2f\n", salestax);
       System.out.printf("Total: %.2f\n\n", total);
 
