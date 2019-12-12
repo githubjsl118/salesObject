@@ -1,4 +1,3 @@
-package proj;
 import java.util.*;
 import java.io.*;
 
@@ -43,7 +42,6 @@ public class salesObject{
    }
 
    //getters (we do not need setters) (potentially we do not need this
-   /*  we are commenting this out for now
    public int getQuantity(){
       return this.quantity;
    }
@@ -59,7 +57,6 @@ public class salesObject{
    public double getPrice(){
       return this.price;
    } 
-   */ //we commented this out  
 
 
    //this method will be used to print info from the salesObject
@@ -70,11 +67,11 @@ public class salesObject{
       if(this.imported){
          System.out.printf("imported ");
       }
-      System.out.printf("%s: %f\n", this.name, this.price);
+      System.out.printf("%s: %.2f\n", this.name, this.price);
          
    }
 
-   public static void main(String args[]){
+   public static void main(String[] args){
       File input1;
       StringTokenizer st;
       String line;
@@ -143,14 +140,13 @@ public class salesObject{
             item.printInfo();
             
             //we now need to add the current item price to the total sales price
-            salesTotal.incfromsales(item);
-               
+            salesTotal.incfromsales(item); 
          } //end while
       } //end for 
 
       //we can now print the sales tax and the total price
       salesTotal.taxandtotalprinter();
-
+      return;
    } //end main 
 
 

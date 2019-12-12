@@ -1,4 +1,3 @@
-package proj;
 
 /*
  * Filename: totalSales.java
@@ -18,7 +17,6 @@ public class totalSales{
    //because we calculate tax on domestic and import separately
    private double domesticTotal;
    private double importTotal;
-
 
    //default constructor here
    public totalSales(){
@@ -88,8 +86,8 @@ public class totalSales{
    public void taxandtotalprinter(){
       double salestax = this.calculateTax();
       double total = domesticTotal + importTotal + salestax;
-      System.out.printf("Sales Taxes: %f\n", salestax);
-      System.out.printf("Total: %f\n", total);
+      System.out.printf("Sales Taxes: %.2f\n", salestax);
+      System.out.printf("Total: %.2f\n", total);
 
    }
 
