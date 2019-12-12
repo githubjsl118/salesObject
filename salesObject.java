@@ -1,3 +1,4 @@
+package proj;
 import java.util.*;
 import java.io.*;
 
@@ -16,7 +17,7 @@ public class salesObject{
    //are robust therefore we are going to assume that these variables are correctly set
    //at each iteration of the while loop within the for loop
    private int quantity;
-   private boolean import;
+   private boolean imported;
    private String name;
    private double price; 
 
@@ -36,7 +37,7 @@ public class salesObject{
    //this would be the full constructor 
    public salesObject(int q, boolean i, String n, double p){
       this.quantity = q;
-      this.import = i;
+      this.imported = i;
       this.name = n;
       this.price = p;
    }
@@ -48,7 +49,7 @@ public class salesObject{
    }
 
    public boolean getImport(){
-      return this.import;
+      return this.imported;
    }
    
    public String getName(){
@@ -66,7 +67,7 @@ public class salesObject{
    public void printInfo(){
       System.out.printf("%d ", this.quantity);
       //determine if we print imported
-      if(this.import){
+      if(this.imported){
          System.out.printf("imported ");
       }
       System.out.printf("%s: %f\n", this.name, this.price);
@@ -80,17 +81,21 @@ public class salesObject{
       String curr;
       
       int quantity;
-      boolean import;
+      boolean imported;
       String name;
       double price;      
-
+      totalSales salesTotal = new totalSales();
       String inputtxt = "input"; 
-       
+      Scanner scan;
+
+ 
       //we set up this for loop so that we can iterate through input1, input2, etc
       for(int i=1; i<= 3; i++){
          input1 = new File(inputtxt + i + ".txt");
-         scan = new Scanner(input1);
- 
+         try{
+            scan = new Scanner(input1);
+         }
+         catch(Exception e){return; } //we are assuming that the input is robust 
          //this while loop will scan the file.  within the while loop, the first word
          //will be the quantity of the object while the second word will determine
          //if the item is imported or not and that is determined by checking if the
@@ -111,10 +116,10 @@ public class salesObject{
             st = new StringTokenizer(line);
             curr = st.nextToken(); //we know that the first token is the quantity
             quantity = Integer.parseInt(curr);
-            import = false;  //by default we assume that item is not imported
+            imported = false;  //by default we assume that item is not imported
             curr = st.nextToken(); //this is either part of the name or import toggle
             if(curr.equals("imported")){ //if it is the import toggle, set the toggle
-               import = true;
+               imported = true;
                curr = st.nextToken(); 
             }
             //current token is now the first part of the name
@@ -129,22 +134,22 @@ public class salesObject{
             //right now the curr string should be at the end, i.e we convert
             //the string to a double and that should give us the price
  
-            price = Double.parseDouble(number); //now the price variable set
+            price = Double.parseDouble(curr); //now the price variable set
 
             //we can now instantiate the salesObject
-            salesObject item = new salesObject(quahtity, import, name, price);
+            salesObject item = new salesObject(quantity, imported, name, price);
+           
+            //we can print the item line here;
+            item.printInfo();
             
-         }
+            //we now need to add the current item price to the total sales price
+            salesTotal.incfromsales(item);
+               
+         } //end while
+      } //end for 
 
-
-
-salesObject(int q, boolean i, String n, double p)
-
-      } //end  
-
-
-
-
+      //we can now print the sales tax and the total price
+      salesTotal.taxandtotalprinter();
 
    } //end main 
 
