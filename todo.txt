@@ -19,4 +19,33 @@ Above has been completed
 
 We now have to create a data structure that contains the list of items that are exempt from 
 being taxed.  We have to determine which class and where exactly to instantiate this 
-data structur
+data structure
+
+Essentially we have two options for where we want to put the hashmap
+
+the first option would be in the salesobject class
+
+the second option would be in the totalsales class
+
+
+might be better to insert it into the salesobject class and make a new private variable
+that will notify it the item is tax exempt or not.  we can set this variable by comparing
+the word to the words in the dictionary set by the hashtable
+
+
+potentially we can put the instantiation of the hashtable dictionary in the main method
+of the salesobject class
+
+
+
+
+in the totalsales class we are now required to fix the calculate tax and the print
+methods to correctly reflect those items that are tax exempt
+
+in the salesobject file, we have to run the names and see if there is a match in the
+hashtable
+
+we should be able to run unit tests afterwards
+
+we are done modifying the salesobject class now
+

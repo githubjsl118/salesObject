@@ -19,7 +19,7 @@ public class salesObject{
    private boolean imported;
    private String name;
    private double price; 
-
+   private boolean exempt;
 
 
 
@@ -33,12 +33,23 @@ public class salesObject{
    //partial constructor is unnecessary as well 
    
 
-   //this would be the full constructor 
+   //this would be the partial constructor 
    public salesObject(int q, boolean i, String n, double p){
       this.quantity = q;
       this.imported = i;
       this.name = n;
       this.price = p;
+      this.exempt = false;
+   }
+
+   //this is the full constructor
+   public salesObject(int q, boolean i, String n, double p, boolean e){
+      this.quantity = q;
+      this.imported = i;
+      this.name = n;
+      this.price = p;
+      this.exempt = e;
+ 
    }
 
    //getters (we do not need setters) (potentially we do not need this
@@ -56,6 +67,10 @@ public class salesObject{
    
    public double getPrice(){
       return this.price;
+   }
+   
+   public boolean getExempt(){
+      return this.exempt;
    } 
 
 
@@ -79,11 +94,22 @@ public class salesObject{
       
       int quantity;
       boolean imported;
+      boolean exempted;
       String name;
       double price;      
       totalSales salesTotal = new totalSales();
       String inputtxt = "input"; 
       Scanner scan;
+
+      /* We will instantiate a hashMap here so that we can use it as a dictionary
+       * to check whether the name of the product is in the list of tax exempt
+       * items
+       */
+       HashMap<String, int> dictionary = new HashMap<String, int> ();
+       dictionary.put("chocolate bar", 1);
+       dictionary.put("box of chocolates", 1);
+       dictionary.put("book", 1);
+       dictionary.put("packet of headache pills", 1);
 
  
       //we set up this for loop so that we can iterate through input1, input2, etc
@@ -118,6 +144,7 @@ public class salesObject{
             curr = st.nextToken(); //we know that the first token is the quantity
             quantity = Integer.parseInt(curr);
             imported = false;  //by default we assume that item is not imported
+            exempted = false; //by default we assume that the item is not exempt
             curr = st.nextToken(); //this is either part of the name or import toggle
             if(curr.equals("imported")){ //if it is the import toggle, set the toggle
                imported = true;
@@ -130,6 +157,13 @@ public class salesObject{
                name = name + " " + curr;
                curr = st.nextToken();
             }
+            //now that the name is properly set, we can check for a match within
+            //the hashmap.  the name of the object is dictionary
+            if(dictionary.containsKey(name)){
+               exempted = true;
+            }
+
+
             //curr aka current token should be "at" so we proceed to the next token
             curr = st.nextToken();
             //right now the curr string should be at the end, i.e we convert
@@ -138,7 +172,7 @@ public class salesObject{
             price = Double.parseDouble(curr); //now the price variable set
 
             //we can now instantiate the salesObject
-            salesObject item = new salesObject(quantity, imported, name, price);
+            salesObject item = new salesObject(quantity, imported, name, price, exempted);
            
             //we can print the item line here;
             item.printInfo();
