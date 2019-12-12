@@ -182,7 +182,18 @@ public class salesObject{
          } //end while
          salesTotal.taxandtotalprinter();
          salesTotal.clear();
-      } //end for 
+      } //end for
+
+//1 imported bottle of perfume at 27.99
+//1 bottle of perfume at 18.99
+//1 packet of headache pills at 9.75
+//1 imported box of chocolates at 11.25
+
+//27.99 * 0.15 = 4.1985
+//18.99 * 0.10 = 1.8999
+//11.25 * 0.05 = 0.5625
+//             = 6.66 if you dont round first
+//             = 6.64 if you round first
 
       //we can now print the sales tax and the total price
       return;

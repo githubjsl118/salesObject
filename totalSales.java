@@ -110,24 +110,17 @@ public class totalSales{
       double taxfromdomestic = domesticTotal * 0.10;
       double taxfromimport = importTotal * 0.15;
       double taxfromeimport = eimportTotal * 0.05;
-      int twodecint = (int)(taxfromdomestic * 100);
-      taxfromdomestic = (double)(twodecint / 100.0); //we round down nearest 0.01 ...
-      twodecint = (int)(taxfromimport * 100);
-      taxfromimport = (double)(twodecint / 100.0);
-      twodecint = (int)(taxfromeimport * 100);
-      taxfromeimport = (double)(twodecint / 100.0);
-
-      //at this point taxfromdomestic and taxfromimport should be two digit ints... 
       double totaltax = taxfromdomestic + taxfromimport + taxfromeimport;
+
       
       //totaltax now needs to be rounded to the nearest 0.05 decimal spot.  
       //according to the specifications of the assignment, we are going to round up
-    
-      twodecint = (int)(totaltax * 100);
-      if( (twodecint % 5) != 0) {
-         twodecint += (5 - (twodecint %5 )); 
+      int twodecint = (int)(totaltax * 10000); //we round to 4 decimal places to get
+                                              //better accuracy when rounding
+      if( (twodecint % 500) != 0) {  
+         twodecint += (500 - (twodecint %500 )); 
       }
-      totaltax = (double)(twodecint / 100.0);
+      totaltax = (double)(twodecint / 10000.0);
       //should be rounded now... we can unit test here  
       return totaltax;
    }

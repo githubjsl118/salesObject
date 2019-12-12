@@ -1,0 +1,29 @@
+/*
+ * Filename: justifications.txt
+ * Author: Justin Lee
+ * Date: 12 December 2019
+ * Description: This file will discuss the limitations of the project
+ *              as well as any assumptions made during the production
+ *              and justifications for these assumptions
+ * 
+ */
+
+Limitations/Assumptions:
+1. No unit testing done
+2. Assumes that the Input files are robust, properly formatted, and named properly
+3. The check to see if the item is exempt or not is essentially hard coded.. if we have
+   more input files, potentially an exempt item might not be on the item exempt list..
+4. Functionality to check if the item is exempt is done in the main method
+5. When rounding the sales tax to 2 decimal places, we only preserve accuracy up to 4 decimal places
+
+Justifications:
+1. Extensive blackbox testing done, as well as testing by using print statements and comparing
+   the values to calculations done through paper
+2. This project is modifiable and given more use cases as well as more examples of the Input file,
+   we can make the file parser more robust
+3. Well I mean it's hardcoded by adding the items to a hashMap... so there is room for expandability
+   there, i.e we can add more items to the hashmap
+4. Since a hashmap itself is an object.. I see no real need to define a new object with a 
+   hashMap container within the class?
+5. 4 decimal places is decently accurate 
+
